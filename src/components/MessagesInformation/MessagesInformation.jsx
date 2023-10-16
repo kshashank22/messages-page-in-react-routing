@@ -1,23 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "../../App.css";
 
-function MessagesInformation() {
+function MessagesInformation({ messagesDetails }) {
   const { messageId } = useParams();
+  const [filteredMessage, setFilteredMessage] = useState(null);
 
-  const messagesList = [
-    { id: 1, message: "Are you a FrontEnd Developer" },
-    { id: 2, message: "Are you a BackEnd Developer" },
-    { id: 3, message: "Are you a FullStack Developer" },
-  ];
-  const filterMessage = messagesList.find(
-    (eachElement) => eachElement.id === parseInt(messageId)
-  );
+  useEffect(() => {
+    const filterMessage = messagesDetails.find(
+      (eachElement) => eachElement.id === parseInt(messageId)
+    );
+    setFilteredMessage(filterMessage);
+  }, [messageId]);
+
   return (
     <div className="content">
       <h1>Message {messageId}:</h1>
       <p>
-        {filterMessage ? filterMessage.message : "Oops!! Message was Not Found"}
+        {filteredMessage
+          ? filteredMessage.message
+          : "Oops!! Message was Not Found"}
       </p>
     </div>
   );
