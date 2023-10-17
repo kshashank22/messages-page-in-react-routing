@@ -9,18 +9,6 @@ import Messages from "../components/Messages/Messages";
 import MessagesInformation from "../components/MessagesInformation/MessagesInformation";
 
 function MessagesPage() {
-  const messagesList = [
-    { id: 1, message: "messages1" },
-    { id: 2, message: "messages2" },
-    { id: 3, message: "messages3" },
-  ];
-
-  const messagesDetails = [
-    { id: 1, message: "Are you a FrontEnd Developer" },
-    { id: 2, message: "Are you a BackEnd Developer" },
-    { id: 3, message: "Are you a FullStack Developer" },
-  ];
-
   return (
     <BrowserRouter>
       <div className="container">
@@ -29,15 +17,11 @@ function MessagesPage() {
           <Route path="/" element={<Home />}></Route>
           <Route exact path="/about" element={<About />}></Route>
           <Route exact path="/contact" element={<Contact />}></Route>
-          <Route
-            exact
-            path="/messages"
-            element={<Messages messagesList={messagesList} />}
-          ></Route>
+          <Route exact path="/messages" element={<Messages />}></Route>
           <Route
             exact
             path="/messages/:messageId"
-            element={<MessagesInformation messagesDetails={messagesDetails} />}
+            element={<MessagesInformation />}
           ></Route>
         </Routes>
       </div>

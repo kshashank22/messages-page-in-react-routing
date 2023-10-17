@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "../../App.css";
+import { messagesDetails } from "../../Utilites";
 
-function Messages({ messagesList }) {
-  const [messages] = useState(messagesList);
+function Messages({}) {
+  const [messages] = useState(messagesDetails);
 
   return (
     <div className="content">
@@ -12,7 +13,7 @@ function Messages({ messagesList }) {
         {messages.map((eachElement) => (
           <li key={eachElement.id}>
             <NavLink to={`/messages/${eachElement.id}`}>
-              {eachElement.message}
+              {eachElement.title}
             </NavLink>
           </li>
         ))}

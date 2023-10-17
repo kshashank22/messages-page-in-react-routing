@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "../../App.css";
+import { messagesDetails } from "../../Utilites";
 
-function MessagesInformation({ messagesDetails }) {
+function MessagesInformation({}) {
   const { messageId } = useParams();
   const [filteredMessage, setFilteredMessage] = useState(null);
 
