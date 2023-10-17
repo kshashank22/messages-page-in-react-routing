@@ -1,7 +1,7 @@
 import React from "react";
 import "./MessagesPage.css";
 import NavBar from "../components/NavBar/NavBar";
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "../components/Home/Home";
 import About from "../components/About/About";
 import Contact from "../components/Contact/Contact";
@@ -10,20 +10,22 @@ import MessagesInformation from "../components/MessagesInformation/MessagesInfor
 
 function MessagesPage() {
   return (
-    <div className="container">
-      <NavBar />
-      <Routes>
-        <Route path="/" Component={Home}></Route>
-        <Route exact path="/about" Component={About}></Route>
-        <Route exact path="/contact" Component={Contact}></Route>
-        <Route exact path="/messages" Component={Messages}></Route>
-        <Route
-          exact
-          path="/messages/:messageId"
-          Component={MessagesInformation}
-        ></Route>
-      </Routes>
-    </div>
+    <BrowserRouter>
+      <div className="container">
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route exact path="/about" element={<About />}></Route>
+          <Route exact path="/contact" element={<Contact />}></Route>
+          <Route exact path="/messages" element={<Messages />}></Route>
+          <Route
+            exact
+            path="/messages/:messageId"
+            element={<MessagesInformation />}
+          ></Route>
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
